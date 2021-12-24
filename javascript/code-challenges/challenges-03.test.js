@@ -64,7 +64,6 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  
   return arr.filter(function(value) {
     if(value % 2 !== 0) {
       return true;
