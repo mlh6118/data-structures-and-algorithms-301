@@ -24,9 +24,17 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  // Solution code here...
+  // Want to return the value of arr.reduce.  "sum" is the accumulator.  "value is the next number in the sequence."  Each time through the "loop", the "value" of the next number is to be added to the sum.  Give the sum the initial value of 0.
+  
+  return arr.reduce((sum, value) => sum + value, 0);
 };
 
+//  Example code to demonstrate the step by step way to get to line 29.
+//   let callback = function(sum,value){
+//     return sum + value;
+//   };
+//   return arr.reduce(callback, 0);
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -40,7 +48,13 @@ Write a function named addPurchases that, given an array of objects as input, us
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
-  // Solution code here...
+
+  return arr.reduce((sum, arr) => sum + arr.purchasePrice, 0);
+
+  // let callback = function(sum, arr){
+  //   return sum + arr.purchasePrice;
+  // };
+  // return arr.reduce(callback,0);
 };
 
 /* ------------------------------------------------------------------------------------------------
