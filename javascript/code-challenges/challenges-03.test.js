@@ -7,6 +7,7 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
+
   let newArr = [];
 
   for(let i = 0; i < arr.length; i++) {
@@ -14,6 +15,7 @@ const addTwo = (arr) => {
   }
 
   return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,6 +27,7 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
+
   let newArr = 0;
   
   // Assign the filtered values to newArr.
@@ -36,6 +39,7 @@ const typeNum = (arr) => {
   })
 
   return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
