@@ -126,7 +126,15 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  // let names = [];
+  // return arr.reduce((acc, arr) => {names.push(arr.name);}, []);
+
+  // Why won't the array accumulate on acc in line 130?
+  let names = [];
+  arr.reduce((acc, arr) => {
+    names.push(arr.name);
+  }, [] );
+  return names;
 };
 
 /* ------------------------------------------------------------------------------------------------
