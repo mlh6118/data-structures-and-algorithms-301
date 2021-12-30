@@ -23,7 +23,12 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  // Solution code here...
+  // Chaining methods.
+  // Run a map on input array.
+  // person.name.split('') takes in the name from the person object and splits it into individual characters in their own strings.
+  // .reverse takes all of the names and reverses the strings within each array created by person.name.split('').
+  // .join concatenates all of the strings within the array that was split and reversed.
+  return arr.map(person => person.name.split('').reverse().join(''));
 };
 
 /* ------------------------------------------------------------------------------------------------
