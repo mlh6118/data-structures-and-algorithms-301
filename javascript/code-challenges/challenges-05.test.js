@@ -12,9 +12,12 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
-  return people.map(people => people.firstName + " " + people.lastName);
+  return people.map(person => `${person.firstName} ${person.lastName}`);
 
 };
+
+// return people.map(person => person.firstName + ' ' + person.lastName);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -130,11 +133,11 @@ const returnNames = (arr) => {
   // return arr.reduce((acc, arr) => {names.push(arr.name);}, []);
 
   // Why won't the array accumulate on acc in line 130?
-  let names = [];
-  arr.reduce((acc, arr) => {
-    names.push(arr.name);
+  // let names = [];
+  return arr.reduce((acc, val) => {
+    acc.push(val.name);
+    return acc;
   }, [] );
-  return names;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +149,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
+  // This splits up the string into individual strings and puts it into an array.
   let arr = str.split('');
 
   let reversed = arr.reduce((newString, currentLetter) => {
