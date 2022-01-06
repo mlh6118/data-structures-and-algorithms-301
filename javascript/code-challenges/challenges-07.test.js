@@ -62,11 +62,22 @@ For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
+
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  let newStr = str;
+
+  result.push(str);
+
+  for(let i = 0; i < str.length; i++){
+    newStr = newStr.slice(1);
+    result.push(newStr);
+    // console.log(result);
+  }
   return result;
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
