@@ -96,7 +96,22 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  // Create the pattern to evaluate.  Use \D to search for any non-digit.
+  const pattern = /\d/g;
+
+  // Create a variable and assign it the input and pattern to evaluate.
+  // Because pattern matches non-digit, a positive value will be false.
+  // input needs to be convert to a string when it is actually a number for matching purposes.
+  let result = input.toString().match(pattern);
+  console.log(result);
+  // Determine if the result should return true or false based on the value received.
+  if(result >= 0){
+    console.log('true');
+    return false;
+  } else {
+    console.log('false');
+    return true;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
