@@ -55,12 +55,24 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  // Determine number of kids per house from least to most.
-
-
-  // If same number of kids, sort by house name alphabetically.
+  // Function takes in two parameters.
+  function cmp(a,b) {
+    // Determine number of kids per house from least to most.
+    // Check if b is greater than a.  If yes, return -1.
+    if(b.children.length > a.children.length) {
+      return -1;
+    } else if(b.children.length === a.children.length) { // Sort alphabetically.
+      if(b.house > a.house) {
+        return -1;
+      }
+    } else {
+      return 1; // Required because the sorter doesn't know what to do with nothing returned.  It is viewed as undefined when not returning anything.
+    }
+  }
 
   // return the new characters array.
+  return(charArray.sort(cmp));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,13 +115,13 @@ const isNum = (input) => {
   // Because pattern matches non-digit, a positive value will be false.
   // input needs to be convert to a string when it is actually a number for matching purposes.
   let result = input.toString().match(pattern);
-  console.log(result);
+  // console.log(result);
   // Determine if the result should return true or false based on the value received.
   if(result >= 0){
-    console.log('true');
+    // console.log('true');
     return false;
   } else {
-    console.log('false');
+    // console.log('false');
     return true;
   }
 };
