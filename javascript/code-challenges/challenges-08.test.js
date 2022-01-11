@@ -75,6 +75,19 @@ const sortByChildren = (charArray) => {
 
 };
 
+// Alternate version of code, as shown in class.
+// const sortByChildren = (charArray) => {
+//   return charArray.sort((a, b) => {
+//     if(a.children.length > b.children.length) {
+//       return 1;
+//     } else if (a.children.length < b.children.length) {
+//       return -1;
+//     } else {
+//       return a.house > b.house ? 1 : -1;
+//     }
+//   })
+// }
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -134,7 +147,20 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  const pattern = /world/g;
+  return pattern.test(input);
+
+  // Failed code.
+  // let result = input.match(pattern);
+
+  // if(result >= 0) {
+  //   console.log(result);
+  //   return true;
+  // } else {
+  //   console.log(result);
+  //   return false;
+  // }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +172,9 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  const pattern = /[A-Z][a-z]*/g;
+  let capitalWords = str.match(pattern);
+  return capitalWords || []; // if no capital words, return an empty array.
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,7 +184,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  const results = [];
+  const pattern = /^[A-J]/;
+
+  arr.forEach(city => {
+    if(pattern.test(city)) {
+      results.push(city);
+    }});
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
