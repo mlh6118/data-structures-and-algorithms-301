@@ -25,9 +25,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  Object.keys(courseInfo).forEach(course => {
-    return(course, courseInfo[course]);
-  });
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
