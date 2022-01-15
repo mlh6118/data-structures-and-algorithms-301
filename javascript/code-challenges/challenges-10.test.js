@@ -10,11 +10,12 @@ Write a function named returnTen, takes in a string and uses split and splice to
 function returnTen(str){
   str = str.split('');
 
-  console.log(str.length);
+  // console.log(str.length);
 
   let arr = [];
   let i = 0;
 
+  // Check if the length of the string is greater than 10.
   if(str.length >= 10) {
     i = str.length - 10;
   } else {
@@ -25,7 +26,7 @@ function returnTen(str){
     arr.splice(i, 0, str[i]);
   }
 
-  console.log(arr);
+  // console.log(arr);
 
   return arr;
 
@@ -46,7 +47,22 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+
+  let maxValue = 0;
+
+  for(let i = 0; i < matrix.length; i++){
+
+    for(let j = 0; j < matrix[j].length; j++){
+
+      if(matrix[i][j] > maxValue){
+        maxValue = matrix[i][j];
+      }
+
+    }
+    return maxValue;
+
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
