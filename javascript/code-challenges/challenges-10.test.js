@@ -6,7 +6,7 @@ CHALLENGE 1 - Review
 Write a function named returnTen, takes in a string and uses split and splice to return the last 10 characters from that string as elements of an array.
 
 ------------------------------------------------------------------------------------------------ */
-
+// Code challenge answer: return str.split('').splice(-10);
 function returnTen(str){
   str = str.split('');
 
@@ -116,8 +116,21 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
 
+  let cookieGrandTotal[][];
+  let cookieTotal = 0;
+
+  // 1. Create a loop for each hour.
+  for(let i = 0; i < hoursOpen.length; i++) {
+    // 2. Add all the cookies sold in that hour.
+    for(let j = 0; j < cookieStores.length; j++)
+    cookieTotal = cookieTotal + cookieGrandTotal[i][j];
+    // 3. Push the cookies sold into a new array.
+    // cookieGrandTotal.push(cookieTotal);
+    console.log(cookieGrandTotal[i][j]);
+  }
+  // 4. Return the total number of cookies per hour.
+  // console.log(cookieGrandTotal);
 };
 
 /* ------------------------------------------------------------------------------------------------
