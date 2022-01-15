@@ -60,7 +60,13 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  let contactData = Object.keys(obj);
+  let newList = [];
+
+  // contactData is the array being acted upon by forEach.
+  contactData.forEach(key => newList.push(`${key}: ${obj[key]}`));
+
+  return newList;
 };
 
 
@@ -116,10 +122,15 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+
+  for(let i = 0; i < characters.length; i++) {
+    houses.push(arr[i].house);
+  }
+
   return houses;
 };
 
+// Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
