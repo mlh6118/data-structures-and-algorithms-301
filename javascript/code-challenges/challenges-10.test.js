@@ -80,7 +80,16 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+
+  let sum = 0;
+
+  for(let i = 0; i < matrix.length; i++){
+    let individualArray = matrix[i].reduce(function (previousValue, currentValue) {
+      return previousValue + currentValue;
+    });
+    sum = sum + individualArray;
+  }
+  return(sum);
 };
 
 
