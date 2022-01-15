@@ -9,7 +9,7 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  return arr.reduce((a,b) => Math.max(a,b));
+  return arr.reduce((a, b) => Math.max(a, b));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,7 +19,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -123,7 +124,7 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
 
-  for(let i = 0; i < characters.length; i++) {
+  for (let i = 0; i < characters.length; i++) {
     houses.push(arr[i].house);
   }
 
@@ -144,23 +145,36 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  let hasChildren = [];
 
-  for(let i = 0; i < arr.length; i++){
-    console.log(i);
-    if(character === arr[i].name){
-      console.log(i + ' ' + character + ' ' + arr[i].name);
-      if(arr[i].children !== undefined){
-        hasChildren.push(true);
-      } else {
-        hasChildren.push(false);
-      }
+  let children = 0;
+
+  arr.forEach(person => {
+    if (person.name === character) {
+      Object.keys(person).forEach((key, idx) => {
+        if (key === 'children') {
+          children = Object.values(person)[idx].length;
+        }
+      });
     }
-  }
+  });
 
-  console.log(hasChildren);
+  return children ? true : false;
 
-  return hasChildren;
+  // let hasChildren = false;
+
+  // for(let i = 0; i < arr.length; i++){
+  //   // console.log(i);
+  //   if(character === arr[i].name){
+  //     // console.log(i + ' ' + character + ' ' + arr[i].name);
+  //     if(arr[i].children !== undefined){
+  //       hasChildren = true;
+  //     }
+  //   }
+  // }
+
+  // console.log(hasChildren);
+
+  // return hasChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
