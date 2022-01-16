@@ -7,7 +7,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 ------------------------------------------------------------------------------------------------ */
 // Code challenge answer: return str.split('').splice(-10);
-function returnTen(str){
+function returnTen(str) {
   str = str.split('');
 
   // console.log(str.length);
@@ -16,13 +16,13 @@ function returnTen(str){
   let i = 0;
 
   // Check if the length of the string is greater than 10.
-  if(str.length >= 10) {
+  if (str.length >= 10) {
     i = str.length - 10;
   } else {
     i = 0;
   }
 
-  for(i; i < str.length; i++){
+  for (i; i < str.length; i++) {
     arr.splice(i, 0, str[i]);
   }
 
@@ -50,11 +50,11 @@ const findMax = (matrix) => {
 
   let maxValue = 0;
 
-  for(let i = 0; i < matrix.length; i++){
+  for (let i = 0; i < matrix.length; i++) {
 
-    for(let j = 0; j < matrix[j].length; j++){
+    for (let j = 0; j < matrix[j].length; j++) {
 
-      if(matrix[i][j] > maxValue){
+      if (matrix[i][j] > maxValue) {
         maxValue = matrix[i][j];
       }
 
@@ -83,13 +83,13 @@ const totalSum = (matrix) => {
 
   let sum = 0;
 
-  for(let i = 0; i < matrix.length; i++){
+  for (let i = 0; i < matrix.length; i++) {
     let individualArray = matrix[i].reduce(function (previousValue, currentValue) {
       return previousValue + currentValue;
     });
     sum = sum + individualArray;
   }
-  return(sum);
+  return (sum);
 };
 
 
@@ -117,21 +117,37 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
 
-  let cookieGrandTotal[][];
-  let cookieTotal = 0;
+  let hourlyTotals = [];
 
-  // 1. Create a loop for each hour.
-  for(let i = 0; i < hoursOpen.length; i++) {
-    // 2. Add all the cookies sold in that hour.
-    for(let j = 0; j < cookieStores.length; j++)
-    cookieTotal = cookieTotal + cookieGrandTotal[i][j];
-    // 3. Push the cookies sold into a new array.
-    // cookieGrandTotal.push(cookieTotal);
-    console.log(cookieGrandTotal[i][j]);
+  for (let j = 0; j < stores[0].length; j++) {
+    let cookieTotal = 0;
+
+    for (let i = 0; i < stores.length; i++) {
+      cookieTotal += stores[i][j];
+    }
+    hourlyTotals.push(cookieTotal);
   }
-  // 4. Return the total number of cookies per hour.
-  // console.log(cookieGrandTotal);
+  // console.log(hourlyTotals);
+  return (hourlyTotals);
 };
+
+// let cookieGrandTotal = [];
+// let cookieTotal = 0;
+
+// // 1. Create a loop for each hour.
+// for(let i = 0; i < hoursOpen.length; i++) {
+//   // 2. Add all the cookies sold in that hour.
+//   for(let j = 0; j < stores.length; j++){
+//     cookieTotal = cookieTotal + stores[i][j];
+//   // 3. Push the cookies sold into a new array.
+//   // cookieGrandTotal.push(cookieTotal);
+//     console.log(stores[i][j]);
+//   }
+//   cookieGrandTotal.push(cookieTotal);
+// }
+// // 4. Return the total number of cookies per hour.
+// console.log(cookieGrandTotal);
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -276,20 +292,20 @@ Run your tests from the console: jest challenge-12.test.js
 
 describe('Testing challenge 1', () => {
   test('it should return the last 10 characters of a string as an array', () => {
-    expect(returnTen('hello world')).toStrictEqual(['e','l','l','o',' ','w','o','r','l','d']);
-    expect(returnTen('world')).toStrictEqual(['w','o','r','l','d']);
+    expect(returnTen('hello world')).toStrictEqual(['e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']);
+    expect(returnTen('world')).toStrictEqual(['w', 'o', 'r', 'l', 'd']);
   });
 });
 
 describe('Testing challenge 2', () => {
   test('It should return the max value', () => {
-    expect(findMax([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(24);
+    expect(findMax([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(24);
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should return the total sum', () => {
-    expect(totalSum([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(81);
+    expect(totalSum([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(81);
     expect(totalSum([])).toStrictEqual(0);
   });
 });
