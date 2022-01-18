@@ -194,7 +194,22 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  // return arr[2].items[1].quantity;
+
+  // 1. loop through outer loop to find 'Pet store'
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i].store);
+    if (arr[i].store === 'Pet store') {
+      console.log('I found the pet store.');
+      // 2. loop through inner loop to find 'Treats' and quantity.
+      for (let j = 0; j < arr[i].items.length; j++) {
+        console.log(arr[i].items[j].name);
+        if (arr[i].items[j].name === 'Treats') {
+          return arr[i].items[j].quantity;
+        }
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
