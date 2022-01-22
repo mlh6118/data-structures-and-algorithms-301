@@ -19,14 +19,8 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj){
-  let newArr = [];
-
-  Object.entries(obj).forEach(([key, value]) => {
-
-    console.log(`<li>${key}: ${value}</li>`);
-    newArr.push(`<li>${key}: ${value}</li>`);
-    console.log(newArr);
-    return(newArr);
+  return Object.keys(obj).map(key => {
+    return (`<li>${key}: ${obj[key]}</li>`);
   });
 }
 
@@ -41,7 +35,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  return input.reduce((accumulator, currentValue) => {
+    const rowCount = currentValue.reduce((acc, currValue) => {
+      if(currValue === target) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+    return accumulator + rowCount;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
