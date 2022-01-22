@@ -81,15 +81,26 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
 
-  let newArr = [];
+  // let newArr = [];
 
-  for(let i = 0; i < input.length; i++){
-    if(input[i] % 5 === 0){
-      newArr.push(Math.pow(2, input[i]));
-    }
-  }
+  // for(let i = 0; i < input.length; i++){
+  //   for(let j = 0; j < input.length; j++){
+  //     if(input[i] % 5 === 0){
+  //       newArr.push(Math.pow(2, input[i]));
+  //     }
+  //   }
+  // }
 
-  console.log(newArr);
+  // return(newArr);
+
+  // Map through outer arr
+  return input.map(arr => {
+    return arr.filter(value => typeof value === 'number' && value % 5 === 0)
+      .map(num => Math.pow(2, num));
+  });
+  // Filter out any value that is not a number or divisible by 5
+  // Map through filteredArr to raise 2 to the power of the value
+
 };
 
 /* ------------------------------------------------------------------------------------------------
