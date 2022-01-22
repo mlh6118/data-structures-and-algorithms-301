@@ -57,7 +57,14 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let sum = 0;
+
+  for(let i = 0; i < input.length; i++) {
+    for(let j = 0; j < input[i].length; j++){
+      sum = sum + input[i][j];
+    }
+  }
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +80,16 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+
+  let newArr = [];
+
+  for(let i = 0; i < input.length; i++){
+    if(input[i] % 5 === 0){
+      newArr.push(Math.pow(2, input[i]));
+    }
+  }
+
+  console.log(newArr);
 };
 
 /* ------------------------------------------------------------------------------------------------
