@@ -57,14 +57,25 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  let sum = 0;
 
-  for(let i = 0; i < input.length; i++) {
-    for(let j = 0; j < input[i].length; j++){
-      sum = sum + input[i][j];
-    }
+  function sum2(a, b) {
+    return a + b;
   }
-  return sum;
+
+  // let individualArraySum = input.map(arr => arr.reduce(sum2));
+
+  return input.map(arr => arr.reduce(sum2)).reduce(sum2);
+
+
+
+  // let sum = 0;
+
+  // for(let i = 0; i < input.length; i++) {
+  //   for(let j = 0; j < input[i].length; j++){
+  //     sum = sum + input[i][j];
+  //   }
+  // }
+  // return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
