@@ -177,7 +177,32 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+
+  // This function will return the character's gender.
+  // function genders(character) {
+  // foo.map(bar)
+  // foo is an array
+  // map acts upon the array foo
+  // bar is a function passed as a parameter.  bar expects a single value which is a character (object) in this case.
+  // return character.gender;
+  // }
+
+  function isMaleOrFemale(character) {
+    if(character.gender === 'male' || character.gender === 'female') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function concatAnd(string1, string2) {
+    return string1 + " and " + string2;
+  }
+
+  let filteredCharacters = data.filter(isMaleOrFemale);
+
+  return filteredCharacters.map(character => character.name).reduce(concatAnd);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
