@@ -54,7 +54,9 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  const pattern = /^[A-z]+[0-9]+/g;
+
+  return(string.toString().search(pattern) === 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
