@@ -40,7 +40,9 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
+  const pattern = /^[A-z]{5,10}$/g;
+
+  return(word.toString().search(pattern) === 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
