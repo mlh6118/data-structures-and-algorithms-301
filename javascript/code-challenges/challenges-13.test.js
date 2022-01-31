@@ -88,7 +88,6 @@ Write a function named allHappy that takes in an array of strings and returns a 
 let pattern = /[:)]/g;
 const allHappy = (arr) => {
   let newArr = arr.map(string => string.search(pattern));
-  console.log(newArr);
 
   if(newArr.includes(-1)){
     return false;
@@ -104,7 +103,16 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let newArr = [];
+
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].includes(target)){
+      console.log(arr[i]);
+      newArr.push(arr[i]);
+    }
+  }
+
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -244,7 +252,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
