@@ -57,14 +57,25 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  let sum = 0;
 
-  for(let i = 0; i < input.length; i++) {
-    for(let j = 0; j < input[i].length; j++){
-      sum = sum + input[i][j];
-    }
+  function sum2(a, b) {
+    return a + b;
   }
-  return sum;
+
+  // let individualArraySum = input.map(arr => arr.reduce(sum2));
+
+  return input.map(arr => arr.reduce(sum2)).reduce(sum2);
+
+
+
+  // let sum = 0;
+
+  // for(let i = 0; i < input.length; i++) {
+  //   for(let j = 0; j < input[i].length; j++){
+  //     sum = sum + input[i][j];
+  //   }
+  // }
+  // return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,15 +92,26 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
 
-  let newArr = [];
+  // let newArr = [];
 
-  for(let i = 0; i < input.length; i++){
-    if(input[i] % 5 === 0){
-      newArr.push(Math.pow(2, input[i]));
-    }
-  }
+  // for(let i = 0; i < input.length; i++){
+  //   for(let j = 0; j < input.length; j++){
+  //     if(input[i] % 5 === 0){
+  //       newArr.push(Math.pow(2, input[i]));
+  //     }
+  //   }
+  // }
 
-  console.log(newArr);
+  // return(newArr);
+
+  // Map through outer arr
+  return input.map(arr => {
+    return arr.filter(value => typeof value === 'number' && value % 5 === 0)
+      .map(num => Math.pow(2, num));
+  });
+  // Filter out any value that is not a number or divisible by 5
+  // Map through filteredArr to raise 2 to the power of the value
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,7 +177,32 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+
+  // This function will return the character's gender.
+  // function genders(character) {
+  // foo.map(bar)
+  // foo is an array
+  // map acts upon the array foo
+  // bar is a function passed as a parameter.  bar expects a single value which is a character (object) in this case.
+  // return character.gender;
+  // }
+
+  function isMaleOrFemale(character) {
+    if(character.gender === 'male' || character.gender === 'female') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function concatAnd(string1, string2) {
+    return string1 + " and " + string2;
+  }
+
+  let filteredCharacters = data.filter(isMaleOrFemale);
+
+  return filteredCharacters.map(character => character.name).reduce(concatAnd);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -165,7 +212,10 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+
+  let shortestCharacter = data.reduce((previousCharacter, currentCharacter) => parseInt(previousCharacter.height) < parseInt(currentCharacter.height) ? previousCharacter : currentCharacter);
+
+  return shortestCharacter.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
