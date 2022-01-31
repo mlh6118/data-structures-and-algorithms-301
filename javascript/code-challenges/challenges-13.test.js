@@ -10,10 +10,8 @@ const longestString = (arr) => {
   let position = 0;
 
   let newArr = arr.map(string => string.length);
-  console.log(newArr);
 
   if(arr.length === 0) {
-    console.log('arr.length === 0');
     position = -1;
   }
 
@@ -34,7 +32,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  return arr.map(string => string.substring(0,1));
 };
 
 /* ------------------------------------------------------------------------------------------------
