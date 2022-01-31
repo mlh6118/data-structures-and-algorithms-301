@@ -7,9 +7,24 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
+
+  let position = 0;
+
+  let newArr = arr.map(string => string.length);
+
+  if(arr.length === 0) {
+    position = -1;
+  }
+
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] > newArr[position]) {
+      position = i;
+    }
+  }
+  return position;
 };
-  
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -19,7 +34,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+
+  return arr.map(string => string.substring(0,1));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +48,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+
+  return arr.filter(string => string.includes(':)'));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,7 +62,9 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+
+  return arr.map(string => string.substring(1, 4) + string.substring(6, 9) + string.substring(10));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +76,17 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+
+  let newStr = '';
+
+  for(let i = 0; i < str.length; i++){
+    if(i % 2 !== 0){
+      newStr = newStr + str.substring(i, i+1);
+    }
+  }
+
+  return newStr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,8 +95,17 @@ CHALLENGE 6
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
+
+let pattern = /[:)]/g;
 const allHappy = (arr) => {
-  // Solution code here...
+  let newArr = arr.map(string => string.search(pattern));
+
+  if(newArr.includes(-1)){
+    return false;
+  } else {
+    return true;
+  };
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +115,18 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+
+  let newArr = [];
+
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].includes(target)){
+      console.log(arr[i]);
+      newArr.push(arr[i]);
+    }
+  }
+
+  return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,7 +209,9 @@ describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
     const strArray2 = [];
-    const strArray3= ['Ginger']
+
+    const strArray3 = ['Ginger']
+
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);
@@ -215,7 +268,9 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+
+describe('Testing challenge 7', () => {
+
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
