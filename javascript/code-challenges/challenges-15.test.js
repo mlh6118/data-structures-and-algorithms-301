@@ -188,8 +188,32 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  // Helper function goes here.
+  const helpCheck = (row1, col1, row2, col2, row3, col3) => {
+    // console.log(board[row1][col1], board[row2][col2], board[row3][col3]);
+    if(board[row1][col1] !== '' &&
+      (board[row1][col1] ===  board[row2][col2] &&
+        board[row2][col2] === board[row3][col3])){
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  if (helpCheck(0, 0, 0, 1, 0, 2)) return true; // first row
+  if (helpCheck(1, 0, 1, 1, 1, 2)) return true; // second row
+  if (helpCheck(2, 0, 2, 1, 2, 2)) return true; // third row
+
+  if (helpCheck(0, 0, 1, 0, 2, 0)) return true; // first col
+  if (helpCheck(0, 1, 1, 1, 2, 1)) return true; // second col
+  if (helpCheck(0, 2, 1, 2, 2, 2)) return true; // third col
+
+  if (helpCheck(0, 0, 1, 1, 2, 2)) return true; // upper left diagonal
+  if (helpCheck(0, 2, 1, 1, 2, 0)) return true; // upper right diagonal
+
+  return false;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
