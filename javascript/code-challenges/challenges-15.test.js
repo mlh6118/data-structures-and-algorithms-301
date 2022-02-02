@@ -140,7 +140,14 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+
+  // Use this because it is a dictionary of objects.
+  // console.log(arr[0][property]);
+
+  return arr.sort((a, b) => {
+    return a[property] > b[property] ? 1 : -1;
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
